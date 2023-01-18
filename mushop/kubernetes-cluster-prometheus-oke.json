@@ -4,7 +4,10 @@
       {
         "$$hashKey": "object:3607",
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -24,8 +27,8 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 6417,
   "graphTooltip": 1,
-  "id": 14,
-  "iteration": 1649226934340,
+  "id": 12,
+  "iteration": 1674046593361,
   "links": [
     {
       "asDropdown": true,
@@ -43,6 +46,10 @@
   "panels": [
     {
       "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -119,7 +126,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -127,7 +134,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_info{exported_node=~\"$node\"}) / sum(kube_node_status_allocatable{resource=\"pods\",exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_info{node=~\"$node\"}) / sum(kube_node_status_allocatable{resource=\"pods\",node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -203,7 +210,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -211,7 +218,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", exported_node=~\"$node\"}) / sum(kube_node_status_allocatable{resource=\"cpu\", unit=\"core\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", node=~\"$node\"}) / sum(kube_node_status_allocatable{resource=\"cpu\", unit=\"core\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -287,7 +294,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -295,7 +302,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", exported_node=~\"$node\"}) / sum(kube_node_status_allocatable{resource=\"memory\", unit=\"byte\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", node=~\"$node\"}) / sum(kube_node_status_allocatable{resource=\"memory\", unit=\"byte\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -371,7 +378,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -426,7 +433,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -441,7 +448,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_allocatable{resource=\"pods\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_status_allocatable{resource=\"pods\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -454,7 +461,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_capacity{resource=\"pods\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_status_capacity{resource=\"pods\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -467,7 +474,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_info{exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_info{node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -542,7 +549,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -557,7 +564,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_capacity{resource=\"cpu\", unit=\"core\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_status_capacity{resource=\"cpu\", unit=\"core\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -570,7 +577,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_allocatable{resource=\"cpu\", unit=\"core\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_status_allocatable{resource=\"cpu\", unit=\"core\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -583,7 +590,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -658,7 +665,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -673,7 +680,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_allocatable{resource=\"memory\", unit=\"byte\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_status_allocatable{resource=\"memory\", unit=\"byte\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -686,7 +693,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_capacity{resource=\"memory\", unit=\"byte\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_status_capacity{resource=\"memory\", unit=\"byte\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -699,7 +706,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -773,7 +780,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -841,6 +848,10 @@
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -934,7 +945,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": false,
-          "expr": "kube_deployment_status_replicas{exported_namespace=~\"$namespace\"}",
+          "expr": "kube_deployment_status_replicas{namespace=~\"$namespace\"}",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -1008,7 +1019,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1016,7 +1027,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_deployment_status_replicas{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_deployment_status_replicas{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1088,7 +1099,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1096,7 +1107,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_deployment_status_replicas_updated{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_deployment_status_replicas_updated{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1168,7 +1179,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1176,7 +1187,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_deployment_status_replicas_unavailable{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_deployment_status_replicas_unavailable{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1189,6 +1200,10 @@
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1261,7 +1276,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1269,7 +1284,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_info{exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_info{node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1344,7 +1359,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1352,7 +1367,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_status_condition{condition=\"OutOfDisk\", exported_node=~\"$node\", status=\"true\"})",
+          "expr": "sum(kube_node_status_condition{condition=\"OutOfDisk\", node=~\"$node\", status=\"true\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1427,7 +1442,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1435,7 +1450,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_node_spec_unschedulable{exported_node=~\"$node\"})",
+          "expr": "sum(kube_node_spec_unschedulable{node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1448,6 +1463,10 @@
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1521,7 +1540,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1529,7 +1548,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_status_phase{exported_namespace=~\"$namespace\", phase=\"Running\"})",
+          "expr": "sum(kube_pod_status_phase{namespace=~\"$namespace\", phase=\"Running\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1602,7 +1621,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1610,7 +1629,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_status_phase{exported_namespace=~\"$namespace\", phase=\"Pending\"})",
+          "expr": "sum(kube_pod_status_phase{namespace=~\"$namespace\", phase=\"Pending\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1683,7 +1702,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1691,7 +1710,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_status_phase{exported_namespace=~\"$namespace\", phase=\"Failed\"})",
+          "expr": "sum(kube_pod_status_phase{namespace=~\"$namespace\", phase=\"Failed\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1764,7 +1783,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1772,7 +1791,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_status_phase{exported_namespace=~\"$namespace\", phase=\"Succeeded\"})",
+          "expr": "sum(kube_pod_status_phase{namespace=~\"$namespace\", phase=\"Succeeded\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1845,7 +1864,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1853,7 +1872,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_status_phase{exported_namespace=~\"$namespace\", phase=\"Unknown\"})",
+          "expr": "sum(kube_pod_status_phase{namespace=~\"$namespace\", phase=\"Unknown\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1866,6 +1885,10 @@
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1939,7 +1962,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1947,7 +1970,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_status_running{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_pod_container_status_running{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2020,7 +2043,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2028,7 +2051,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_status_waiting{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_pod_container_status_waiting{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2101,7 +2124,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2109,7 +2132,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_status_terminated{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_pod_container_status_terminated{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2182,7 +2205,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2190,7 +2213,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(delta(kube_pod_container_status_restarts_total{exported_namespace=\"kube-system\"}[30m]))",
+          "expr": "sum(delta(kube_pod_container_status_restarts_total{namespace=\"kube-system\"}[30m]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2263,7 +2286,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2271,7 +2294,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", exported_namespace=~\"$namespace\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", namespace=~\"$namespace\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2344,7 +2367,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2352,7 +2375,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", exported_namespace=~\"$namespace\", exported_node=~\"$node\"})",
+          "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", namespace=~\"$namespace\", node=~\"$node\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2365,6 +2388,10 @@
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2438,19 +2465,21 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(kube_job_status_succeeded{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_job_status_succeeded{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2519,7 +2548,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2527,7 +2556,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_job_status_active{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_job_status_active{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2600,7 +2629,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -2608,7 +2637,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "exemplar": true,
-          "expr": "sum(kube_job_status_failed{exported_namespace=~\"$namespace\"})",
+          "expr": "sum(kube_job_status_failed{namespace=~\"$namespace\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2620,7 +2649,7 @@
       "type": "stat"
     }
   ],
-  "schemaVersion": 34,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [
     "kubernetes",
@@ -2657,7 +2686,7 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(kube_node_info{}, exported_node)",
+        "definition": "label_values(kube_node_info{}, node)",
         "hide": 0,
         "includeAll": true,
         "label": "Node",
@@ -2665,7 +2694,7 @@
         "name": "node",
         "options": [],
         "query": {
-          "query": "label_values(kube_node_info{}, exported_node)",
+          "query": "label_values(kube_node_info{}, node)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2685,7 +2714,7 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(kube_namespace_labels, exported_namespace)",
+        "definition": "label_values(kube_namespace_labels, namespace)",
         "hide": 0,
         "includeAll": true,
         "label": "Namespace",
@@ -2693,7 +2722,7 @@
         "name": "namespace",
         "options": [],
         "query": {
-          "query": "label_values(kube_namespace_labels, exported_namespace)",
+          "query": "label_values(kube_namespace_labels, namespace)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2736,6 +2765,6 @@
   "timezone": "browser",
   "title": "Kubernetes Cluster (Prometheus) - OKE",
   "uid": "4XuMd2Iiz-OKE",
-  "version": 3,
+  "version": 8,
   "weekStart": ""
 }
